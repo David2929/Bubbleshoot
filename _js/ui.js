@@ -25,8 +25,18 @@ BubbleShoot.ui = (function($){
 		var angle = Math.atan((mouseCoords.x - bubbleCoords.left - boardLeft) / (bubbleCoords.top + gameCoords.top - mouseCoords.y));
 		if(mouseCoords.y > bubbleCoords.top + gameCoords.top){
 			angle += Math.PI;
-		}
+	}
 		return angle;
+	},
+	fireBubble : function(bubble, coords, duration){
+		bubble.getSprite().animate({
+			left : coords.x - ui.BUBBLE_DIMS/2,
+			top : coords.y - ui.BUBBLE_DIMS/2
+		},
+		{
+			duration : duration,
+			easing : "linear"
+		});
 	}
 };
 return ui;

@@ -18,6 +18,16 @@ BubbleShoot.Game = (function($){
 		};
 		var clickGameScreen = function(e){
 			var angle = BubbleShoot.ui.getBubbleAngle(curBubble.getSprite(),e);
+			var duration = 750;
+			var distance = 1000;
+			var distX = Math.sin(angle) * distance;
+			var distY = Math.cos(angle) * distance;
+			var bubbleCoords = BubbleShoot.ui.getBubbleCoords(curBubble.getSprite());
+			var coords = {
+				x : bubbleCoords.left + distX,
+				y : bubbleCoords.top +distY
+			};
+			BubbleShoot.ui.fireBubble(curBubble, coords, duration);
 		};
 	};
 	return Game;
