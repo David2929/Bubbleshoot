@@ -20,15 +20,16 @@ BubbleShoot.ui = (function($){
 	getBubbleAngle : function(bubble,e){
 		var mouseCoords = ui.getMouseCoords(e);
 		var bubbleCoords = ui.getBubbleCoords(bubble);
-		var gameCoords = $("game").position();
+		var gameCoords = $("#game").position();
 		var boardLeft = 120;
-		var angle = Math.atan((mouseCoords.x - bubbleCoords.left - boardLeft) / (bubbleCoords.top + gameCoords.top - mouseCoords.y));
+		var angle = Math.atan((mouseCoords.x - bubbleCoords.left - boardLeft) 
+		/ (bubbleCoords.top + gameCoords.top - mouseCoords.y));
 		if(mouseCoords.y > bubbleCoords.top + gameCoords.top){
 			angle += Math.PI;
-	}
+		}
 		return angle;
 	},
-	fireBubble : function(bubble, coords, duration){
+	fireBubble : function(bubble,coords,duration){
 		bubble.getSprite().animate({
 			left : coords.x - ui.BUBBLE_DIMS/2,
 			top : coords.y - ui.BUBBLE_DIMS/2
