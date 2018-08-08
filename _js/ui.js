@@ -38,6 +38,14 @@ BubbleShoot.ui = (function($){
 		{
 			duration : duration,
 			easing : "linear"
+			complete : function(){
+				if(bubble.getRow() !== null){
+					bubble.getSprite().css({
+						left : bubble.getCoords().left - ui.BUBBLE_DIMS/2,
+						top : bubble.getCoords().top - ui.BUBBLE_DIMS/2
+					});
+				};
+			}
 		});
 	},
 	drawBoard : function(board){
@@ -47,7 +55,7 @@ BubbleShoot.ui = (function($){
 			var row = rows[i];
 			for(var j=0;j<row.length;j++){
 				var bubble = row[j];
-				if (bubble){
+				if(bubble){
 					var sprite = bubble.getSprite();
 					gameArea.append(sprite);
 					var left = j * ui.BUBBLE_DIMS/2;
@@ -59,6 +67,9 @@ BubbleShoot.ui = (function($){
 				};
 			};
 		};
+	},
+	drawBubblesRemaining : function(numBubbles){
+		$("#bubbles_remaining").text(numBubbles);
 	}
 };
 return ui;
