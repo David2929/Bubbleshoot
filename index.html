@@ -19,12 +19,13 @@
 			"_js/ui.js",
 			"_js/bubble.js",
 			"_js/board.js",
+			"_js/collision-detector.js"
 				{
-					load: "_js/game.js"
-					complete: function(){
-						$(function(){
-							var game = new BubbleShoot.Game();
-							game.init();
+				load: "_js/game.js"
+				complete: function(){
+					$(function(){
+						var game = new BubbleShoot.Game();
+						game.init();
 						})
 					}
 			}]);
