@@ -22,6 +22,22 @@ BubbleShoot.CollisionDetector = (function($){
 							y : start.top - coords.top
 						};
 						var t = dx * distToBubble.x + dy * distToBubble.y;
+						var ex = -t * dx + start.left;
+						var ey = -t * dy + start.top;
+						var distEC = Math.sqrt((ex - coords.left) * (ex - coords.left) +
+							(ey - coords.top) * (ey - coords.top));
+						if(distEC<BubbleShoot.ui.BUBBLE_DIMS * .75) {
+							var dt = Math.sqrt(BubbleShoot.ui.BUBBLE_DIMS * BubbleShoot.
+								ui.BUBBLE_DIMS - distEC * distEC);
+							var offset1 = {
+								x : (t - dt) * dx,
+								y : -(t - dt) * dy
+							};
+							var offset2 = {
+								x : (t + dt) * dx,
+								y : -(t + dt) * dy
+							};
+						}
 						
 					}
 				}
