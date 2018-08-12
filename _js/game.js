@@ -29,6 +29,12 @@ BubbleShoot.Game = (function($){
 			var angle = BubbleShoot.ui.getBubbleAngle(curBubble.getSprite(),e);
 			var duration = 750;
 			var distance = 1000;
+			var collision = BubbleShoot.CollisionDetector.findIntersection(curBubble,
+				board,angle);= collision.coords;
+			if(collision){
+				var coords = collision.coords;
+				duration = Math.round(duration * collision.distToCollision / distance);
+			}else{
 			var distX = Math.sin(angle) * distance;
 			var distY = Math.cos(angle) * distance;
 			var bubbleCoords = BubbleShoot.ui.getBubbleCoords(curBubble.
@@ -36,6 +42,7 @@ BubbleShoot.Game = (function($){
 			var coords = {
 					x : bubbleCoords.left + distX,
 					y : bubbleCoords.top +distY
+				};
 			};
 			BubbleShoot.ui.fireBubble(curBubble,coords,duration);
 			curBubble = getNextBubble();
