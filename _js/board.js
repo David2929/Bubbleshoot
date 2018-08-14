@@ -20,6 +20,11 @@ BubbleShoot.Board = (function($){
 				bubble.setRow(rowNum);
 				bubble.setCol(colNum);
 		};
+		this.getBubbleAt = function(rowNum,Colnum){
+			if(!this.getRows()[rowNum])
+				return null;
+			return this.getRows()[rowNum][colNum];
+		};
 		return this;
 	};
 	var createLayout = function(){
