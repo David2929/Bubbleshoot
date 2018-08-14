@@ -56,6 +56,10 @@ BubbleShoot.Board = (function($){
 				};
 			};
 			return found;
+		};
+		this.popBubbleAt = function(rowNum,colNum){
+			var row = rows[rowNum];
+			delete row[colNum];
 		};	
 		return this;
 	};
