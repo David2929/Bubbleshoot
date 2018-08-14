@@ -36,6 +36,27 @@ BubbleShoot.Board = (function($){
 			};
 			return 	bubbles;
 		};
+		this.getGroup = function(bubble,found){
+			var curRow = bubble.getRow();
+			if(!found[curRow])
+				found[curRow] = {};
+			if(!found.list)
+				found.list = [];
+			if(found[curRow][bubble.getCol()]){
+				return found;
+			}
+			found[curRow][bubble.getCol()] = bubble;
+			found.list.push(bubble);
+			var curCol = bubble.getCol();
+			var surrounding = that.getBubblesAround(curRow,curCol);
+			for(var i=0;i<surrounding.length;i++){
+				var bubbleAt = surrounding[i];
+				if(bubbleAt.getType() == bubble.getType()){
+					found = that.getGroup(bubbleAt,found);
+				};
+			};
+			return found;
+		};	
 		return this;
 	};
 	var createLayout = function(){
