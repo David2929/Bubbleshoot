@@ -55,10 +55,14 @@ BubbleShoot.Game = (function($){
 		var popBubbles = function(bubbles,delay){
 			$.each(bubbles,function(){
 				var bubble = this;
+				setTimeout(function(){
+					bubble.animationPop();
+				},delay);
 				board.popBubbleAt(this.getRow(),this.getCol());
 				setTimeout(function(){
 					bubble.getSprite().remove();
 				}.delay + 200);
+				delay += 60;
 			});
 		};
 	};
