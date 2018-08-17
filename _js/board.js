@@ -36,7 +36,7 @@ BubbleShoot.Board = (function($){
 			};
 			return 	bubbles;
 		};
-		this.getGroup = function(bubble,found){
+		this.getGroup = function(bubble,found,differentColor){
 			var curRow = bubble.getRow();
 			if(!found[curRow])
 				found[curRow] = {};
@@ -51,8 +51,8 @@ BubbleShoot.Board = (function($){
 			var surrounding = that.getBubblesAround(curRow,curCol);
 			for(var i=0;i<surrounding.length;i++){
 				var bubbleAt = surrounding[i];
-				if(bubbleAt.getType() == bubble.getType()){
-					found = that.getGroup(bubbleAt,found);
+				if(bubbleAt.getType() == bubble.getType() || differentColor){
+					found = that.getGroup(bubbleAt,found,differentColor);
 				};
 			};
 			return found;
