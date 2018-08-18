@@ -38,7 +38,10 @@ BubbleShoot.Game = (function($){
 				var group = board.getGroup(curBubble,{});
 				if(group.list.length >= 3){
 					popBubbles(group.list,duration);
-				}
+					var orphans = board.findOrphans();
+					var delay = duration + 200 + 30 * group.list.length;
+					dropBubbles(orphans,delay);
+				};
 			}else{
 			var distX = Math.sin(angle) * distance;
 			var distY = Math.cos(angle) * distance;
