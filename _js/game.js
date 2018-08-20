@@ -68,6 +68,17 @@ BubbleShoot.Game = (function($){
 				delay += 60;
 			});
 		};
+		var dropBubbles = function(bubbles,delay){
+			$.each(bubbles,function(){
+				var bubble = this;
+				board.popBubbleAtleAt(bubble.getRow(),bubble.getCol());
+				setTimeout(function(){
+					bubble.getSprite().animate({
+						top : 1000
+					},1000);
+				},delay);
+			});
+		};
 	};
 	return Game;
 })(jQuery);
