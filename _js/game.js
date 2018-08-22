@@ -30,7 +30,7 @@ BubbleShoot.Game = (function($){
 			var duration = 750;
 			var distance = 1000;
 			var collision = BubbleShoot.CollisionDetector.findIntersection(curBubble,
-				board,angle);= collision.coords;
+				board,angle);
 			if(collision){
 				var coords = collision.coords;
 				duration = Math.round(duration * collision.distToCollision / distance);
@@ -41,7 +41,7 @@ BubbleShoot.Game = (function($){
 					var orphans = board.findOrphans();
 					var delay = duration + 200 + 30 * group.list.length;
 					dropBubbles(orphans,delay);
-				};
+				}
 			}else{
 			var distX = Math.sin(angle) * distance;
 			var distY = Math.cos(angle) * distance;
@@ -73,6 +73,7 @@ BubbleShoot.Game = (function($){
 				var bubble = this;
 				board.popBubbleAtleAt(bubble.getRow(),bubble.getCol());
 				setTimeout(function(){
+					console.log(bubble.getSprite());
 					bubble.getSprite().kaboom();
 				},delay);
 			});
