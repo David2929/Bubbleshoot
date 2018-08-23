@@ -66,8 +66,8 @@ BubbleShoot.CollisionDetector = (function($){
 					};
 				};
 			};
-			return collision;
-		}
+		return collision;
+	}
 	};
 	return CollisionDetector;
 })(jQuery);

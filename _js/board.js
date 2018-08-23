@@ -16,9 +16,9 @@ BubbleShoot.Board = (function($){
 				colNum -= 1;
 			if(!rows[rowNum])
 				rows[rowNum] = [];
-				rows[rowNum][colNum] = bubble;
-				bubble.setRow(rowNum);
-				bubble.setCol(colNum);
+			rows[rowNum][colNum] = bubble;
+			bubble.setRow(rowNum);
+			bubble.setCol(colNum);
 		};
 		this.getBubbleAt = function(rowNum,Colnum){
 			if(!this.getRows()[rowNum])
