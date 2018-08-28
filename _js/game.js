@@ -4,6 +4,7 @@ BubbleShoot.Game = (function($){
 		var curBubble;
 		var board;
 		var numBubbles;
+		var bubbles = [];
 		var MAX_BUBBLES = 70;
 		this.init = function(){
 			$(".but_start_game").bind("click",startGame);
@@ -14,11 +15,14 @@ BubbleShoot.Game = (function($){
 			BubbleShoot.ui.hideDialog();
 			curBubble = getNextBubble();
 			board = new BubbleShoot.Board();
+			bubbles = board.getBubbles();
 			BubbleShoot.ui.drawBoard(board);
 			$("#game").bind("click", clickGameScreen);
 		};
 		var getNextBubble = function(){
 			var bubble = BubbleShoot.Bubble.create();
+			bubbles.push(bubble);
+			bubble.setState(BubbleShoot.BubbleState.CURRENT);
 			bubble.getSprite().addClass("cur_bubble");
 			$("#board").append(bubble.getSprite());
 			BubbleShoot.ui.drawBubblesRemaining(numBubbles);
