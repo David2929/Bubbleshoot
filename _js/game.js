@@ -63,7 +63,11 @@ BubbleShoot.Game = (function($){
 			$.each(bubbles,function(){
 				var bubble = this;
 				setTimeout(function(){
+					bubble.setState(BubbleShoot.BubbleState.POPPING);
 					bubble.animationPop();
+					setTimeout(function(){
+						bubble.setState(BubbleShoot.BubbleState.POPPED);
+					},200);
 				},delay);
 				board.popBubbleAt(this.getRow(),this.getCol());
 				setTimeout(function(){
@@ -77,8 +81,13 @@ BubbleShoot.Game = (function($){
 				var bubble = this;
 				board.popBubbleAtleAt(bubble.getRow(),bubble.getCol());
 				setTimeout(function(){
-					console.log(bubble.getSprite());
-					bubble.getSprite().kaboom();
+					bubble.setState(BubbleShoot.BubbleState.FALLING);
+					bubble.getSprite().kaboom({
+						callback : function(){
+							bubble.getSprite().remove();
+							bubble.setState(BubbleShoot.BubbleState.FALLEN);
+						}
+					});
 				},delay);
 			});
 		};
