@@ -31,6 +31,7 @@ BubbleShoot.ui = (function($){
 		return angle;
 	},
 	fireBubble : function(bubble,coords,duration){
+		bubble.setState(BubbleShoot.BubbleState.FIRING);
 		var complete = function(){
 			if(bubble.getRow() !== null){
 				bubble.getSprite().css(Modernizr.prefixed("transition"),"");
@@ -38,7 +39,10 @@ BubbleShoot.ui = (function($){
 					left : bubble.getCoords().left - ui.BUBBLE_DIMS/2;
 					top : bubble.getCoords().top - ui.BUBBLE_DIMS/2;
 				});
-			};
+				bubble.setState(BubbleShoot.BubbleState.ON_BOARD);
+			}else{
+				bubble.setState(BubbleShoot.BubbleState.FIRED);
+			}
 		};
 		if(Modernizr.csstransitions){
 			bubble.getSprite().css(Modernizr.prefixed("transition"),"all " + 
