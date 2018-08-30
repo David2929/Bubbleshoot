@@ -7,7 +7,13 @@ BubbleShoot.Game = (function($){
 		var bubbles = [];
 		var MAX_BUBBLES = 70;
 		this.init = function(){
-			$(".but_start_game").bind("click",startGame);
+			if(BubbleShoot.Renderer){
+				BubbleShoot.Renderer.init(function(){
+				$(".but_start_game").click("click",startGame);
+				});
+			}else{
+				$(".but_start_game").click("click",startGame);
+			};
 		};
 		var startGame = function(){
 			$(".but_start_game").unbind("click");
