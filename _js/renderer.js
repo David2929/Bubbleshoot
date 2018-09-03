@@ -3,6 +3,8 @@ BubbleShoot.renderer = (function($){
 	var canvas;
 	var context;
 	var Rendered = {
-		
+		init : function(callback){
+			
+		}
 	}
 })
