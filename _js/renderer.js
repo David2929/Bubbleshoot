@@ -9,6 +9,9 @@ BubbleShoot.renderer = (function($){
 			$("#game").prepend(canvas);
 			$(canvas).attr("width",$(canvas).width());
 			$(canvas).attr("height",$(canvas).height());
+			context = canvas.getContext("2d");
+			callback();
 		}
-	}
-})
+	};
+	return Renderer;
+})(jQuery);
