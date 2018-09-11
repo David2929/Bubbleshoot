@@ -59,9 +59,13 @@ BubbleShoot.Bubble = (function($){
 		if(type === undefined){
 			type = Math.floor(Math.random() * 4);
 		};
+		if(!BubbleShoot.Renderer){
 		var sprite = $(document.createElement("div"));
 		sprite.addClass("bubble");
 		sprite.addClass("bubble_" + type);
+		}else{
+			var sprite = new BubbleShoot.Sprite();
+		}	
 		var bubble = new Bubble(rowNum,colNum,type,sprite);
 		return bubble;
 	};
