@@ -30,6 +30,12 @@ BubbleShoot.Game = (function($){
 			bubbles.push(bubble);
 			bubble.setState(BubbleShoot.BubbleState.CURRENT);
 			bubble.getSprite().addClass("cur_bubble");
+			var top = 470;
+			var left = ($("#board").width() - BubbleShoot.ui.BUBBLE_DIMS)/2;
+			bubble.getSprite().css({
+				top : top
+				left : left
+			});
 			$("#board").append(bubble.getSprite());
 			BubbleShoot.ui.drawBubblesRemaining(numBubbles);
 			numBubbles--;
