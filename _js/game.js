@@ -6,6 +6,7 @@ BubbleShoot.Game = (function($){
 		var numBubbles;
 		var bubbles = [];
 		var MAX_BUBBLES = 70;
+		var requestAnimationID;
 		this.init = function(){
 			if(BubbleShoot.Renderer){
 				BubbleShoot.Renderer.init(function(){
@@ -17,12 +18,19 @@ BubbleShoot.Game = (function($){
 		};
 		var startGame = function(){
 			$(".but_start_game").unbind("click");
+			$("#board .bubble").remove();
 			numBubbles = MAX_BUBBLES;
 			BubbleShoot.ui.hideDialog();
-			curBubble = getNextBubble();
 			board = new BubbleShoot.Board();
 			bubbles = board.getBubbles();
+			if(BubbleShoot.Renderer)
+			{
+				if(!requestAnimationID)
+					requestAnimationID = setTimeout(renderFrame,40);
+			}else{
 			BubbleShoot.ui.drawBoard(board);
+			};
+			curBubble = getNextBubble(board);
 			$("#game").bind("click", clickGameScreen);
 		};
 		var getNextBubble = function(){
