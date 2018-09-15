@@ -17,6 +17,20 @@ BubbleShoot.renderer = (function($){
 			spriteSheet.onload = function(){
 			callback();
 			};
+			render : function(bubbles){
+				context.clearRect(0,0,canvas.width,canvas.height);
+				context.translate(120,0);
+				$.each(bubbles,function(){
+					var bubble = this;
+					var clip = {
+						top : bubble.getType() * BUBBLE_IMAGE_DIM,
+						left : 0
+					};
+					Renderer.drawSprite(bubble.getSprite(),clip);
+				});
+				context.translate(-120,0);
+			},
+			drawSprite
 		}
 	};
 	return Renderer;
