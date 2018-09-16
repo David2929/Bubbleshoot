@@ -30,7 +30,15 @@ BubbleShoot.renderer = (function($){
 				});
 				context.translate(-120,0);
 			},
-			drawSprite
+			drawSprite : function(sprite,clip){
+				context.translate(sprite.position().left + sprite.width()/2,sprite.
+					position().top + sprite.height()/2);
+				contect.drawImage(spriteSheet,clip.left,clip.top,BUBBLE_IMAGE_DIM,
+					BUBBLE_IMAGE_DIM,-sprite.width()/2,-sprite.height()/2,BUBBLE_IMAGE_
+					DIM,BUBBLE_IMAGE_DIM);
+				context.translate(-sprite.position().left - sprite.width()/2,
+					-sprite.position().top - sprite.height()/2); 
+			}
 		}
 	};
 	return Renderer;
