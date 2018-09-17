@@ -92,4 +92,3 @@ BubbleShoot.ui = (function($){
 return ui;
 })(jQuery);
 
-{()}
