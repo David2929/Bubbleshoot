@@ -129,6 +129,9 @@ BubbleShoot.Board = (function($){
 	return Board;
 })(jQuery);
 
+{()};
+
+
 
 
 
