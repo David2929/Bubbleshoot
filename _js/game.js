@@ -111,6 +111,10 @@ BubbleShoot.Game = (function($){
 				},delay);
 			});
 		};
+		var renderFrame = function(){
+			BubbleShoot.Renderer.render(bubbles);
+			requestAnimationID = setTimeout(renderFrame,40);
+		};
 	};
 	return Game;
 })(jQuery);
