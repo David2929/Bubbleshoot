@@ -20,6 +20,28 @@ BubbleShoot.Sprite = (function($){
 				top = args.top;
 		};
 		this.css = this.setPosition;
+		this.animate = function(destination,config){
+			var duration = config.duration;
+			var animationStart = Date.now();
+			var startPosition = that.position();
+			that.updateFrame = function(){
+				var elapsed = Date.now() - animationStart;
+				var proportion = elapsed/duration;
+				if(proportion > 1)
+					proportion = 1;
+				var posLeft = startPosition.left + (destination.left - startPosition.
+					left) * proportion;
+				that.css({
+					left : posLeft,
+					top : posTop
+				});
+			};
+			setTimeout(function(){
+				that.updateFrame = null;
+				if(config.complete)
+					config.complete();
+			},duration);
+		};
 		return this;
 	};
 	Sprite.prototype.width = function(){
