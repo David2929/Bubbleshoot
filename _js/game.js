@@ -112,6 +112,10 @@ BubbleShoot.Game = (function($){
 			});
 		};
 		var renderFrame = function(){
+			$.each(bubbles,function(){
+				if(this.getSprite().updateFrame)
+					this.getSprite().updateFrame();
+			});
 			BubbleShoot.Renderer.render(bubbles);
 			requestAnimationID = setTimeout(renderFrame,40);
 		};
