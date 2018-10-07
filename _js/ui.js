@@ -44,7 +44,7 @@ BubbleShoot.ui = (function($){
 				bubble.setState(BubbleShoot.BubbleState.FIRED);
 			}
 		};
-		if(Modernizr.csstransitions){
+		if(Modernizr.csstransitions && !BubbleShoot.Renderer){
 			bubble.getSprite().css(Modernizr.prefixed("transition"),"all " + 
 				(duration/1000) + "s linear");
 			bubble.getSprite().css({
