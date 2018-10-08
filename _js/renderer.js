@@ -26,6 +26,13 @@ BubbleShoot.renderer = (function($){
 						top : bubble.getType() * BUBBLE_IMAGE_DIM,
 						left : 0
 					};
+					switch(bubble.getState()){
+						case BubbleShoot.BubbleState.POPPING:
+							var timeInState = bubble.getTimeInState();
+							
+					}
+
+
 					Renderer.drawSprite(bubble.getSprite(),clip);
 				});
 				context.translate(-120,0);
