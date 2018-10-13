@@ -37,6 +37,8 @@ BubbleShoot.renderer = (function($){
 								clip.left = BUBBLE_IMAGE_DIM*3;
 							};
 							break;
+							case BubbleShoot.BubbleState.POPPED:
+								return;
 							
 					}
 
