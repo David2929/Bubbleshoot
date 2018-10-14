@@ -39,6 +39,8 @@ BubbleShoot.renderer = (function($){
 							break;
 							case BubbleShoot.BubbleState.POPPED:
 								return;
+							case BubbleShoot.BubbleState.FIRED:
+								return;
 							
 					}
 
