@@ -41,7 +41,8 @@ BubbleShoot.renderer = (function($){
 								return;
 							case BubbleShoot.BubbleState.FIRED:
 								return;
-							
+							case BubbleShoot.BubbleState.FALLEN:
+								return;
 					}
 
 
