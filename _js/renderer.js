@@ -43,8 +43,7 @@ BubbleShoot.renderer = (function($){
 								return;
 							case BubbleShoot.BubbleState.FALLEN:
 								return;
-					}
-
+							}
 
 					Renderer.drawSprite(bubble.getSprite(),clip);
 				});
