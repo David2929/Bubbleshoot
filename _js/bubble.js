@@ -32,8 +32,8 @@ BubbleShoot.Bubble = (function($){
 			var coords = {
 				left : that.getCol() * BubbleShoot.ui.BUBBLE_DIMS/2 +
 				BubbleShoot.ui.BUBBLE_DIMS/2,
-				top : that.getRow() * BubbleShoot.ui.ROW_HEIGHT + 
-				BubbleShoot.ui.BUBBLE_DIMS/2
+				top : that.getRow() * BubbleShoot.ui.ROW_HEIGHT + BubbleShoot.
+				ui.BUBBLE_DIMS/2
 			};
 			return coords;
 		}
@@ -60,12 +60,14 @@ BubbleShoot.Bubble = (function($){
 			type = Math.floor(Math.random() * 4);
 		};
 		if(!BubbleShoot.Renderer){
-		var sprite = $(document.createElement("div"));
-		sprite.addClass("bubble");
-		sprite.addClass("bubble_" + type);
+			var sprite = $(document.createElement("div"));
+			sprite.addClass("bubble");
+			sprite.addClass("bubble_" + type);
 		}else{
 			var sprite = new BubbleShoot.Sprite();
-		}	
+		}
+		sprite.addClass("bubble");
+		sprite.addClass("bubble_" + type);
 		var bubble = new Bubble(rowNum,colNum,type,sprite);
 		return bubble;
 	};
