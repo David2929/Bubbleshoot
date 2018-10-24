@@ -72,4 +72,4 @@ BubbleShoot.CollisionDetector = (function($){
 	return CollisionDetector;
 })(jQuery);
 
-{}
+
