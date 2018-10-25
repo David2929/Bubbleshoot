@@ -28,9 +28,8 @@ BubbleShoot.Game = (function($){
 				if(!requestAnimationID)
 					requestAnimationID = setTimeout(renderFrame,40);
 			}else{
-			BubbleShoot.ui.drawBoard(board);
+				BubbleShoot.ui.drawBoard(board);
 			};
-			curBubble = getNextBubble(board);
 			$("#game").bind("click", clickGameScreen);
 		};
 		var getNextBubble = function(){
@@ -107,7 +106,7 @@ BubbleShoot.Game = (function($){
 							bubble.getSprite().remove();
 							bubble.setState(BubbleShoot.BubbleState.FALLEN);
 						}
-					});
+					})
 				},delay);
 			});
 		};
