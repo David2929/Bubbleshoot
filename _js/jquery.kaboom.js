@@ -18,7 +18,7 @@
 			x : this.position().left,
 			y : this.position().top,
 			config : config
-		});
+			});
 		};
 		var moveAll = function(){
 			var frameProportion = 1;
