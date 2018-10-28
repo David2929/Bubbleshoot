@@ -33,7 +33,7 @@ BubbleShoot.ui = (function($){
 	fireBubble : function(bubble,coords,duration){
 		bubble.setState(BubbleShoot.BubbleState.FIRING);
 		var complete = function(){
-			if(bubble.getRow() !== null){
+			if(typeof(bubble.getRow()) != 'undefined'){
 				bubble.getSprite().css(Modernizr.prefixed("transition"),"");
 				bubble.getSprite().css({
 					left : bubble.getCoords().left - ui.BUBBLE_DIMS/2;
