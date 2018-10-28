@@ -6,6 +6,10 @@ BubbleShoot.Game = (function($){
 		var numBubbles;
 		var bubbles = [];
 		var MAX_BUBBLES = 70;
+		var POINTS_PER_BUBBLE = 50;
+		var level = 0;
+		var score = 0;
+		var highScore = 0;
 		var requestAnimationID;
 		this.init = function(){
 			if(BubbleShoot.Renderer){
