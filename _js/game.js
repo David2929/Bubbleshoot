@@ -23,7 +23,7 @@ BubbleShoot.Game = (function($){
 		var startGame = function(){
 			$(".but_start_game").unbind("click");
 			$("#board .bubble").remove();
-			numBubbles = MAX_BUBBLES;
+			numBubbles = MAX_BUBBLES - level * 5;
 			BubbleShoot.ui.hideDialog();
 			board = new BubbleShoot.Board();
 			bubbles = board.getBubbles();
