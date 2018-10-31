@@ -21,6 +21,7 @@
 			"_js/board.js",
 			"_js/collision-detector.js",
 			"_js/jquery.kaboom.js",
+			"_js/sounds.js",
 			{
 				test: Modernizr.canvas,
 				yep: ("_js/renderer.js","_js/sprite.js")
@@ -40,6 +41,18 @@
 	<body>
 		<div id="page">
 			<div id="top bar"></div>
+				<div id="top_level_box" class="top_bar_box">
+					<div id="top_level_label">Level:</div>
+					<div id="level">1</div>
+				</div>
+				<div class="top_bar_box">
+					<div id="top_score_label">Score:</div>
+					<div id="score">0</div>
+				</div>
+				<div class="top_bar_box">
+					<div id="top_score_label">High Score:</div>
+					<div id="high_score">0</div>
+				</div>
 			<div id="game">
 				<div id="board"></div>
 				<div id="bubbles_remaining"></div>
