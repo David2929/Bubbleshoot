@@ -22,6 +22,19 @@ body
 	background-color: #369;
 	color: #fff;
 }
+.top_bar_box
+{
+	font-size: 24px;
+	line-height: 60px;
+	float: left;
+	margin-left: 20px;
+	width: 250px;
+}
+.top_bar_box div
+{
+	float: left;
+	margin-right: 20px;
+}
 
 #game
 {
