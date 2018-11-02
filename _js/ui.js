@@ -88,6 +88,16 @@ BubbleShoot.ui = (function($){
 	drawBubblesRemaining : function(numBubbles){
 		$("#bubbles_remaining").text(numBubbles);
 	}
+
+	drawScore : function(score){
+		$("#score").text(score);
+	},
+	drawHighScore : function(highScore){
+		$("#high_score").text(highScore);
+	},
+	drawLevel : function(level){
+		$("#level").text(level+1);
+	}
 };
 return ui;
 })(jQuery);
