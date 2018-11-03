@@ -35,6 +35,8 @@ BubbleShoot.Game = (function($){
 				BubbleShoot.ui.drawBoard(board);
 			};
 			$("#game").bind("click", clickGameScreen);
+			BubbleShoot.ui.drawScore(score);
+			BubbleShoot.ui.drawLevel(level);
 		};
 		var getNextBubble = function(){
 			var bubble = BubbleShoot.Bubble.create();
@@ -68,6 +70,12 @@ BubbleShoot.Game = (function($){
 					var orphans = board.findOrphans();
 					var delay = duration + 200 + 30 * group.list.length;
 					dropBubbles(orphans,delay);
+					var popped = [].concat(group.list.orphans);
+					var ponts = popped.length * POINTS_PER_BUBBLE;
+					score += points;
+					setTimeout(function(){
+						BubbleShoot.ui.drawScore(score);
+					},delay);
 				}
 			}else{
 			var distX = Math.sin(angle) * distance;
