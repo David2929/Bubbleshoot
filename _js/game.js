@@ -88,7 +88,13 @@ BubbleShoot.Game = (function($){
 				};
 			};
 			BubbleShoot.ui.fireBubble(curBubble,coords,duration);
-			curBubble = getNextBubble();
+			if(numBubbles == 0){
+				endGame(false);
+				}else if(board.isEmpty()){
+					endGame(true);
+				}else{
+				curBubble = getNextBubble(board);
+				}
 		};
 		var popBubbles = function(bubbles,delay){
 			$.each(bubbles,function(){
