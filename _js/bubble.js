@@ -74,9 +74,5 @@ BubbleShoot.Bubble = (function($){
 	return Bubble;
 })(jQuery);
 
-{}
-{}
-{}
-{}
 
 
