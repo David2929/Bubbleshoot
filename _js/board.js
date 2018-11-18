@@ -133,11 +133,6 @@ BubbleShoot.Board = (function($){
 })(jQuery);
 
 
-{
-}
-{}
-
-
 
 
 
