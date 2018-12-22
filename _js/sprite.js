@@ -59,9 +59,6 @@ BubbleShoot.Sprite = (function($){
 	return Sprite;
 })(jQuery);
 
-{}
-{}
-{}
 
 
 
