@@ -61,8 +61,4 @@ BubbleShoot.Renderer = (function($){
 	};
 	return Renderer;
 })(jQuery);
-{}
-{}
-{}
-{}{}
 
